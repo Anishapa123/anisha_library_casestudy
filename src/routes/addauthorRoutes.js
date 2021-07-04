@@ -1,13 +1,13 @@
 const express= require('express');
 const addauthorRouter =  express.Router();
 
-function router(nav){
+function router(navadmin){
 
 
 
 addauthorRouter.get('/',function(req,res){
     res.render('addauthor',{
-        nav,
+        navadmin,
         title:'Library'
     })
 

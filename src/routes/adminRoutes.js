@@ -14,6 +14,24 @@ adminRouter.get('/',function(req,res){
     })
 
 });
+// adminRouter.post('/admin',function(req,res){
+//   let useremail=req.body.email;
+//   let  userpassword =req.body.password;
+
+//   User.findOne({email})
+//   .then(function(){
+//       if(useremail=="paanisha414@gmail.com" 
+//       && userpassword=="123456789"){
+//           res.redirect('/admin');
+          
+//       }
+//       else{
+           
+//      return false;
+//       }
+
+//  })
+// })
 
 
 

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/libraryapp_casestudy',{ useNewUrlParser: true, useUnifiedTopology: true });
+const mongoose=require('./connection').db
 const Schema = mongoose.Schema;
+
 
 
 
@@ -13,6 +13,8 @@ const validateSchema  = new Schema({
 
 });
 
+
+  
 
 
 

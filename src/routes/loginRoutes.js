@@ -3,7 +3,7 @@ const app = express();
 const loginRouter= express.Router();
 const user =require('../model/user');
 const admin =require('../model/admin');
-const validate =require('../model/validate');
+const Login =require('../model/login');
 
 function router(nav){
   
@@ -20,26 +20,37 @@ loginRouter.post('/userdata',function(req,res){
     let useremail=req.body.email;
     let  userpassword =req.body.password;
 
-    user.findOne({useremail: req.body.email }, (err, data) => {
-		if (data) {
-
-			if (data.userpassword == req.body.password) {
-				//console.log("Done Login");
-				// req.body.userId = data.unique_id;
-				//console.log(req.session.userId);
-				res.send({ "Success": "Success!" });
-                res.redirect('/userdata');
-
-			} else {
-				res.send({ "Success": "Wrong password!" });
-			}
-		} else {
-			res.send({ "Success": "This Email Is not registered!" });
-		}
-        
-	});
-});
-
+                    console.log('LOGIN HIT')
+                
+                    console.log(req.body);
+                
+                
+                    user.findOne({useremail: req.body.email }, (err, data) => {
+                        console.log(err)
+                            console.log(data)
+                		if (data) {
+                            console.log(data)
+                
+                			if (data.userpassword == req.body.password) {
+                				console.log("Done Login");
+                				// req.body.userId = data.unique_id;
+                				//console.log(req.session.userId);
+                				// res.send({ "Success": "Success!" });
+                               
+                
+                			// } else {
+                			// 	res.send({ "Success": "Wrong password!" });
+                            //     // return false;
+                			}
+                        }
+                		 else {
+                		return false;
+                            // res.send({ "Success": "This Email Is not registered!" });
+                		}
+                        user.save()
+                        res.redirect('/userdata')
+                    });
+                });
     loginRouter.post('/admin',function(req,res){
         let useremail=req.body.email;
         let  userpassword =req.body.password;

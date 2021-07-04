@@ -1,8 +1,10 @@
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/libraryapp_casestudy',{ useNewUrlParser: true,useUnifiedTopology: true  });
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost:27017/library',{ useNewUrlParser: true,useUnifiedTopology: true  });
+const mongoose=require('./connection').db
 
-const AuthorSchema  = new Schema({
+// const Schema = mongoose.Schema;
+
+const AuthorSchema  = mongoose.Schema({
     author:String,
     place:String,
     title:String,
@@ -10,6 +12,6 @@ const AuthorSchema  = new Schema({
 
 });
 
-var Authordata = mongoose.model('Authordata',AuthorSchema);
+var Authordata = mongoose.model('authordata',AuthorSchema);
 
 module.exports = Authordata;

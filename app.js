@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
+const dbConnection=require('./src/model/connection')
+dbConnection.connectDB();
 const nav= [
    
     {
@@ -17,10 +19,10 @@ const nav= [
 const navadmin =[
   {
     
-      link:'/books',name:'Books'
+      link:'/admin',name:'Add Admin'
   },
   {
-      link:'/authors',name:'Authors'
+      link:'/querybooks',name:'Query Books'
   },
   {
     link:'/admin',name:' Add Book'
@@ -28,6 +30,12 @@ const navadmin =[
   {
     link:'/addAuthor',name:' Add Author'
   },
+  {
+    link:'/borrowbooks',name:'Borrow Books'
+},
+{
+  link:'/returnbooks',name:'Return Books'
+},
   {
     
     link:'/logout',name:'Logout'
@@ -41,7 +49,8 @@ const navadmin =[
    {
     link:'/authors',name:'Authors'
    },
-   {
+   
+    {
     link:'/logout',name:'Logout'
     },
 ];
@@ -49,8 +58,8 @@ const navadmin =[
 
 const userdataRouter = require('./src/routes/userdataRoutes')(navuse)
 const adminRouter = require('./src/routes/adminRoutes')(navadmin)
-const authorRouter = require('./src/routes/authorRoutes')(nav)
-const addauthorRouter = require('./src/routes/addauthorRoutes')(nav)
+const authorRouter = require('./src/routes/authorRoutes')(navuse)
+const addauthorRouter = require('./src/routes/addauthorRoutes')(navadmin)
 const signupRouter = require('./src/routes/signupRoutes')(nav)
 const loginRouter = require('./src/routes/loginRoutes')(nav)
 const booksRouter = require('./src/routes/bookRoutes')(navuse)

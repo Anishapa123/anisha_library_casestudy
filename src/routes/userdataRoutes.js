@@ -56,7 +56,40 @@ function router(navuse){
       })
   
   });
-  
+//   userdataRouter.post('/userdata',function(req,res){
+//     let useremail=req.body.email;
+//     let  userpassword =req.body.password;
+//     console.log('LOGIN HIT')
+
+//     console.log(req.body);
+
+
+//     user.findOne({useremail: req.body.email }, (err, data) => {
+//         console.log(err)
+//             console.log(data)
+// 		if (data) {
+//             console.log(data)
+
+// 			if (data.userpassword == req.body.password) {
+// 				console.log("Done Login");
+// 				// req.body.userId = data.unique_id;
+// 				//console.log(req.session.userId);
+// 				res.send({ "Success": "Success!" });
+               
+
+// 			} else {
+// 				res.send({ "Success": "Wrong password!" });
+//                 // return false;
+// 			}
+//         }
+// 		 else {
+// 			res.send({ "Success": "This Email Is not registered!" });
+// 		}
+//         // user.save()
+//         // res.redirect('/userdata')
+//     });
+// });
+
       userdataRouter.post('/add', (req, res) => {
       const item={
                       name :req.body.name,

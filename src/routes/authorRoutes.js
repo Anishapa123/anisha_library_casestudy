@@ -3,7 +3,7 @@ const app = express();
 const authorRouter =  express.Router();
 const Authordata =require('../model/Authordata');
 
-function router(nav){
+function router(navuse){
 
 //   var authors=[
 //     {
@@ -60,7 +60,7 @@ authorRouter.get('/',function(req,res){
   Authordata.find()
   .then(function(authors){
   res.render("authors",{
-   nav,
+   navuse,
   title:'Library',
    authors
 
@@ -75,7 +75,7 @@ authorRouter.get('/',function(req,res){
                 Authordata.findOne({_id:id})
                 .then(function(author){
                   res.render('author',{
-                    nav,
+                    navuse,
                    title:'Library',
                     author
                         });

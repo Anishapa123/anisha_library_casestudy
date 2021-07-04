@@ -2,7 +2,8 @@
  const app = express();
  const booksRouter= express.Router();
  const Bookdata =require('../model/Bookdata');
- function router(nav){
+ 
+ function router(navuse){
 
 //   var books=[
 //     {
@@ -46,7 +47,7 @@
         Bookdata.find()
         .then(function(books){
         res.render("books",{
-         nav,
+         navuse,
         title:'Library',
          books
 
@@ -61,7 +62,7 @@
                       Bookdata.findOne({_id:id})
                       .then(function(book){
                         res.render('book',{
-                          nav,
+                          navuse,
                          title:'Library',
                           book
                               });

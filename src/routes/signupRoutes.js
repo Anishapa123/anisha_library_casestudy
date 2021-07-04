@@ -15,17 +15,18 @@ const validate =require('../model/validate');
      
     });   
 });
-signupRouter.post('/signup',function(req,res){
+signupRouter.post('/',function(req,res){
     var check ={
     email:req.body.email,
     password:req.body.password,
     address:req.body.address,
     phone:req.body.phone
 }
+
          var sign= user(check);
          sign.save()
-         book.save();
-         res.redirect('/userdata');
+       
+         res.redirect('/');
      });
 
 

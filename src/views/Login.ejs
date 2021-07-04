@@ -95,21 +95,21 @@
 
       
 
-      <form id="login-form"   action="/login/userdata" method="POST" onsubmit=" return!! (formHandler()&&checkpwd());">
+      <form id="login-form"   action="/userdata" method="POST" onsubmit=" return!! (validate1()&&validate2()&&checkpwd());">
        
         <div class="col-lg-4 Login margin"></div>
         <div class="row mb-8" style="padding-left: 460px;">
           <label for="Email" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-3">
-            <input type="text" placeholder="email" id="email">
+            <input type="text" name="email" placeholder="email" id="email">
           </div>
         </div>
         <label for="error" id="error"></label>
         <br>
         <div class="row mb-4" style="padding-left: 470px;">
-          <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+          <label for="inputPassword3"  class="col-sm-2 col-form-label">Password</label>
           <div class="col-sm-3">
-            <input type="password" placeholder="password" id="pwd">
+            <input type="password" name="password"placeholder="password" id="pwd">
           </div>
         </div> 
         <br>
@@ -120,7 +120,7 @@
       </form>
       <br>
       <br>
-      <script src="form.js"></script>
+      
       
                                                                                       
 <hr>
@@ -165,6 +165,7 @@
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+    <script src="/public/src/js/form.js"></script>
 	</body>
 </html>
       
